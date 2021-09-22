@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/toolbar_ss"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="16dp"
+    android:background="@color/transparentPurple">
+
+    <com.bignerdranch.android.redbook.util.DLRoundImageView
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="16dp"
+        app:borderColor="@color/white"
+        app:borderWidth="2"
+        app:hasShadow="false"
+        android:src="@drawable/bg_ump45"/>
+</androidx.appcompat.widget.Toolbar>

@@ -6,9 +6,8 @@ import android.util.Log
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.bignerdranch.android.redbook.StoryItem
+import com.bignerdranch.android.redbook.entity.StoryItem
 import okhttp3.OkHttpClient
-import okhttp3.Request
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -29,9 +28,10 @@ class RedBookFetcher {
             .build()
         //配置Retrofit
         val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl("https://api.flickr.com/")
+            .baseUrl("http://192.168.0.100:8080/")
+//            .baseUrl("http://localhost:8080/")
             .addConverterFactory(GsonConverterFactory.create())
-            .client(client)
+//            .client(client)
             .build()
         //由Retrofit创建Api实例
         redBookApi = retrofit.create(RedBookApi::class.java)
@@ -69,7 +69,7 @@ class RedBookFetcher {
                 val storyResponse: StoryResponse? = redBookResponse?.storyResponse
                 //将story集去除空数据后作为返回值LiveData
                 var storyItems: List<StoryItem> = storyResponse?.storyItems ?: mutableListOf()
-                storyItems = storyItems.filterNot { it.imgUrl.isBlank() }
+//                storyItems = storyItems.filterNot { it.imgUrl.isBlank() }
                 responseLiveData.value = storyItems
             }
         })

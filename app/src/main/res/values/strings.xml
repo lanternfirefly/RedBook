@@ -3,4 +3,10 @@
 
     <string name="image_description">一张缩略图</string>
     <string name="text_load">文字加载中</string>
+    <string name="nick_name_fill">昵称</string>
+    <string name="password_fill">密码</string>
+    <string name="btn_log_in">登入</string>
+    <string name="menu_extend">附加选项</string>
+    <string name="menu_search">搜索</string>
+    <string name="menu_clear">clear search</string>
 </resources>
