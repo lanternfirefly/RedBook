@@ -7,7 +7,7 @@
     android:paddingTop="16dp"
     android:background="@color/transparentPurple">
 
-    <com.bignerdranch.android.redbook.util.DLRoundImageView
+    <com.bignerdranch.android.redbook.widget.DLRoundImageView
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_marginEnd="16dp"

@@ -6,9 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -20,7 +18,9 @@ private const val TAG = "StoryDetailFragment"
 
 class StoryDetailFragment : Fragment() {
 
-    private lateinit var iv_preview: ImageView
+    //    private lateinit var iv_preview: ImageView
+//    private lateinit var plvv: PLVideoView
+    private lateinit var vv_detail: VideoView
     private lateinit var iv_head: ImageView
     private lateinit var tv_name: TextView
     private lateinit var ib_like: ImageButton
@@ -32,6 +32,7 @@ class StoryDetailFragment : Fragment() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         storyItemBinded = StoryItem(
             arguments?.getSerializable(ARG_STORY_ID) as Int,
@@ -55,15 +56,23 @@ class StoryDetailFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_story_detail, container, false)
 
-        iv_preview = view.findViewById(R.id.story_img_video)
+        vv_detail = view.findViewById(R.id.story_img_video)
         iv_head = view.findViewById(R.id.icon_log_in)
         tv_name = view.findViewById(R.id.tv_detail_nick_name)
         ib_like = view.findViewById(R.id.btn_like_detail)
         ib_focus = view.findViewById(R.id.btn_focus)
         tv_desc = view.findViewById(R.id.tv_detail_desc)
 
+        Log.d(TAG, "img url: ${storyItemBinded.imgUrl}")
 //        iv_preview.setImageURI(Uri.parse(storyItemBinded.imgUrl))
-        iv_preview.setImageResource(R.drawable.bg_test_5)
+//        iv_preview.setImageResource(R.drawable.bg_test_5)
+
+
+//        val videoPath = "http://vjs.zencdn.net/v/oceans.mp4"
+        val videoPath = "android.resource://${context?.packageName}/${R.raw.idolsvideo}"
+        vv_detail.setVideoPath(videoPath)
+        vv_detail.setMediaController(MediaController(context))
+
 //        iv_head.setImageURI(Uri.parse(storyItemBinded.iconUrl))
         iv_head.setImageResource(R.drawable.bg_ump45)
 
@@ -77,9 +86,9 @@ class StoryDetailFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        iv_preview.setOnClickListener {
+        /*iv_preview.setOnClickListener {
             Log.d(TAG, "iv_preview ")
-        }
+        }*/
 
         ib_like.setOnClickListener {
             Log.d(TAG, "ib_like")
@@ -88,6 +97,21 @@ class StoryDetailFragment : Fragment() {
         ib_focus.setOnClickListener {
             Log.d(TAG, "ib_focus")
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        vv_detail.start()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        vv_detail.pause()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        vv_detail.stopPlayback()
     }
 
     companion object {

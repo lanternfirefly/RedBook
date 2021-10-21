@@ -16,13 +16,13 @@
         app:layout_constraintGuide_percent="0.15" />
 
 
-    <com.bignerdranch.android.redbook.util.DLRoundImageView
+    <com.bignerdranch.android.redbook.widget.DLRoundImageView
         android:id="@+id/icon_log_in"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_gravity="center"
         android:layout_marginTop="8dp"
-        android:src="@drawable/bg_daiduo"
+        android:src="@drawable/bg_ump45"
         app:borderColor="@color/white"
         app:borderWidth="10"
         app:hasShadow="true"

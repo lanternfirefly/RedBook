@@ -30,7 +30,13 @@ data class StoryItem(
 
 ) {
 
-    constructor(title: String, descText: String, url: String, nickName: String, icon: String) : this(
+    constructor(
+        title: String,
+        descText: String,
+        url: String,
+        nickName: String,
+        icon: String
+    ) : this(
         RandomIntUtil.getRandomInt(),
         title, descText,
         url,
@@ -40,6 +46,9 @@ data class StoryItem(
     ) {
 
     }
+
+    val imgFileName
+        get() = "IMG_$id.jpg"
 
 
     override fun toString(): String {

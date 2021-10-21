@@ -3,13 +3,21 @@
     package="com.bignerdranch.android.redbook">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
 
     <application
         android:name=".RedBookApplication"
-        android:networkSecurityConfig="@xml/network_security_config"
         android:allowBackup="true"
         android:icon="@mipmap/red_book"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:hardwareAccelerated="true"
         android:roundIcon="@mipmap/red_book_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
@@ -21,6 +29,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.bignerdranch.android.redbook.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/files" />
+        </provider>
     </application>
 
 </manifest>

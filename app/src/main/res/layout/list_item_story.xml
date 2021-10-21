@@ -8,7 +8,7 @@
     android:layout_margin="4dp"
     android:background="@drawable/bg_list_item_story">
 
-    <com.bignerdranch.android.redbook.util.RoundImageView
+    <com.bignerdranch.android.redbook.widget.RoundImageView
         android:id="@+id/story_img"
         android:layout_width="match_parent"
         android:layout_height="180dp"

@@ -3,6 +3,7 @@ package com.bignerdranch.android.redbook
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import com.bignerdranch.android.redbook.api.LogResponse
+import com.bignerdranch.android.redbook.database.UserCacheRepository
 import com.bignerdranch.android.redbook.entity.UserCache
 
 class LogInViewModel : ViewModel() {
